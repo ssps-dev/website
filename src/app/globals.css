@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ─── Clean Warm White Background ─── */
+  --color-bg: #FAFAF8;
+  --color-bg-alt: #F3F2EF;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F7F6F4;
+
+  /* ─── Primary — Warm Deep Charcoal ─── */
+  --color-primary: #292524;
+  --color-primary-light: #3B3634;
+  --color-primary-lighter: #4A4543;
+  --color-primary-subtle: #FAFAF8;
+
+  /* ─── Accent — Burnished Copper ─── */
+  --color-accent: #B8860B;
+  --color-accent-light: #D4A017;
+  --color-accent-lighter: #E8C547;
+  --color-accent-subtle: #F7F0E0;
+
+  /* ─── Borders ─── */
+  --color-border: #E5E2DE;
+  --color-border-hover: #D5D0CB;
+  --color-border-strong: #C0BAB4;
+
+  /* ─── Text ─── */
+  --color-heading: #1C1917;
+  --color-body: #44403C;
+  --color-muted: #78716C;
+  --color-light: #A8A29E;
+
+  /* ─── Semantic aliases ─── */
+  --color-background: #FAFAF8;
+  --color-foreground: #1C1917;
+
+  /* ─── Fonts ─── */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-body);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #B8860B20;
+    color: #111111;
+  }
+}
+
+/* ─── Utility Classes ─── */
+.section-padding {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+/* ─── Diagonal hatch pattern for section accents ─── */
+.hatch-pattern {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    #C5BFBA18 4px,
+    #C5BFBA18 5px
+  );
+}
+
+/* ─── Horizontal rule accent ─── */
+.accent-rule {
+  height: 2px;
+  background: linear-gradient(90deg, #B8860B, #B8860B 40%, transparent);
+}
