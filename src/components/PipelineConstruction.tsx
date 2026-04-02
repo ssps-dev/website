@@ -172,7 +172,7 @@ export default function PipelineConstruction() {
             {/* Left — image */}
             <div className="relative min-h-72 bg-bg lg:min-h-0">
               <Image
-                src="https://placehold.co/800x900/E8E4E0/3D3D3D?text=ILLUSTRATION%0APipeline+hydrostatic+test%0Apressure+recorders+%26%0Ainspection+crew%0A(warm+pencil+sketch)"
+                src="/img/pipeline-testing.webp"
                 alt="Pipeline hydrostatic testing and inspection"
                 fill
                 className="object-cover"

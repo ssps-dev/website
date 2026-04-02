@@ -47,13 +47,92 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "SSPS — Seven Star Petroleum Services",
+    title: "SSPS — Seven Star Petroleum Services | Oilfield Services in Oman",
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/img/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "SSPS — Seven Star Petroleum Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SSPS — Seven Star Petroleum Services | Oilfield Services in Oman",
+    description: SITE_DESCRIPTION,
+    images: ["/img/og-image.webp"],
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Seven Star Petroleum Services LLC",
+  alternateName: "SSPS",
+  url: SITE_URL,
+  logo: `${SITE_URL}/img/logo.webp`,
+  description: SITE_DESCRIPTION,
+  foundingDate: "1998",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Muscat, Sultanate of Oman",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Muscat",
+    addressCountry: "OM",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "info@ssps.om",
+    contactType: "customer service",
+    availableLanguage: ["English", "Arabic"],
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Oman",
+  },
+  knowsAbout: [
+    "Oil Well Drilling",
+    "Water Well Drilling",
+    "Rig Maintenance",
+    "Pipeline Construction",
+    "Electrical & Instrumentation",
+    "Equipment Trading",
+    "Well Intervention",
+    "Oilfield Services",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Oilfield Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Drilling Services" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rig Components & Equipment Trading" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rig & Component Maintenance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Electrical & Instrumentation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pipeline Construction" } },
+    ],
   },
 };
 
@@ -64,6 +143,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -72,3 +157,4 @@ export default function RootLayout({
     </html>
   );
 }
+

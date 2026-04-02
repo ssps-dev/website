@@ -79,7 +79,7 @@ export default function About() {
                 className="absolute inset-0"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1540743527709-032f806b207c?q=80&w=2748&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="/img/about.webp"
                   alt="SSPS operations — drilling, pipeline, and infrastructure"
                   fill
                   className="object-cover object-center"
@@ -148,10 +148,23 @@ export default function About() {
               </p>
               <p>
                 We don&apos;t just drill wells — we build the infrastructure
-                that powers communities. From 11kVA overhead lines to 132kVA
+                that powers communities. From 11kV overhead lines to 132kV
                 substations, from slick line interventions to full pipeline
                 commissioning, SSPS is the single partner for every stage of
                 energy development.
+              </p>
+            </div>
+
+            {/* ── Vision Statement ── */}
+            <div className="mt-14 border-t border-border pt-10">
+              <h3 className="mb-4 text-[10px] font-semibold tracking-[0.3em] text-muted uppercase">
+                Our Vision
+              </h3>
+              <p className="text-[15px] leading-[1.8] text-body">
+                To become a trusted global leader in energy and industrial
+                services by delivering innovative, efficient, and sustainable
+                solutions, while maintaining the highest standards of safety,
+                quality, and operational excellence.
               </p>
             </div>
 

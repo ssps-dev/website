@@ -41,7 +41,7 @@ const components = [
       "Full-pressure testing",
     ],
     image:
-      "https://placehold.co/400x560/E8E4E0/3D3D3D?text=ILLUSTRATION%0AMud+pump%0Aexploded+view%0A(pencil+sketch)",
+      "/img/rig-mn/mud.webp",
   },
   {
     name: "Draw-Works",
@@ -53,7 +53,7 @@ const components = [
       "Load-test before return to service",
     ],
     image:
-      "https://placehold.co/400x560/E8E4E0/3D3D3D?text=ILLUSTRATION%0ADraw-works%0Agearbox+cutaway%0A(pencil+sketch)",
+      "/img/rig-mn/draw.webp",
   },
   {
     name: "Rotary Tables",
@@ -65,7 +65,7 @@ const components = [
       "Run-out & torque verification",
     ],
     image:
-      "https://placehold.co/400x560/E8E4E0/3D3D3D?text=ILLUSTRATION%0ARotary+table%0Abearing+assembly%0A(pencil+sketch)",
+      "/img/rig-mn/rotary.webp",
   },
   {
     name: "Engines & Aux",
@@ -77,7 +77,7 @@ const components = [
       "Performance dyno testing",
     ],
     image:
-      "https://placehold.co/400x560/E8E4E0/3D3D3D?text=ILLUSTRATION%0ADiesel+engine%0Apower+pack+rebuild%0A(pencil+sketch)",
+      "/img/rig-mn/engine.webp",
   },
 ];
 
@@ -155,7 +155,7 @@ export default function RigMaintenance() {
         {/* Background image */}
         <div className="relative min-h-[520px] lg:min-h-[600px]">
           <Image
-            src="https://placehold.co/1600x800/E8E4E0/3D3D3D?text=ILLUSTRATION%0AMaintenance+crew+servicing%0Aactive+drilling+rig+at+dusk%0A(warm+charcoal+pencil+sketch)"
+            src="/img/rig-mn.webp"
             alt="Maintenance crew servicing an active drilling rig"
             fill
             className="object-cover"
@@ -183,14 +183,13 @@ export default function RigMaintenance() {
                   Active Rig Support
                 </span>
                 <h3 className="mt-3 text-[1.75rem] font-light tracking-tight text-white md:text-[2.25rem]">
-                  Full-Scale Rig Maintenance & Servicing
+                  O&M of Drilling & Workover Rigs
                 </h3>
                 <p className="mt-6 text-[15px] leading-[1.85] text-white/60">
-                  A drilling rig is a complex mechanical ecosystem — thousands
-                  of moving parts operating under extreme loads, around the
-                  clock. Our maintenance division embeds with active rig
-                  operations to deliver continuous, comprehensive servicing that
-                  keeps every system at peak output.
+                  Our Operations & Maintenance (O&M) services ensure optimal
+                  performance and longevity of drilling and workover rigs. We
+                  focus on minimizing downtime, improving efficiency, and
+                  maintaining the highest safety standards.
                 </p>
                 <p className="mt-4 text-[14px] leading-[1.85] text-white/45">
                   From daily inspections and fluid analysis to emergency
@@ -275,7 +274,7 @@ export default function RigMaintenance() {
                     src={comp.image}
                     alt={comp.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>

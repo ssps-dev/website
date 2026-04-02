@@ -106,7 +106,7 @@ function DrillingCard() {
             src={s.image}
             alt={s.imageAlt}
             fill
-            className="object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+            className="object-cover opacity-60"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-transparent lg:bg-gradient-to-r" />
@@ -198,7 +198,7 @@ function EquipmentCard() {
               src={s.image}
               alt={s.imageAlt}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover"
               sizes="(max-width: 768px) 100vw, 55vw"
             />
           </div>
@@ -241,7 +241,7 @@ function MaintenanceCard() {
           src={s.image}
           alt={s.imageAlt}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/30" />
@@ -349,7 +349,7 @@ function ElectricalCard() {
                     {v.kva}
                   </span>
                   <span className="text-[11px] font-medium text-muted">
-                    kVA
+                    kV
                   </span>
                 </div>
                 <span className="mt-2 block text-[9px] font-semibold tracking-[0.2em] text-accent/70 uppercase">
@@ -376,7 +376,7 @@ function ElectricalCard() {
         {/* Right — Content + Image */}
         <div className="flex flex-col">
           {/* Image */}
-          <div className="relative min-h-[200px] flex-1 lg:min-h-0">
+          <div className="relative min-h-[400px] flex-1 lg:min-h-0">
             <Image
               src={s.image}
               alt={s.imageAlt}
@@ -446,7 +446,7 @@ function PipelineCard() {
           src={s.image}
           alt={s.imageAlt}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent" />

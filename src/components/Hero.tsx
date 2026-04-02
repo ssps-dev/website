@@ -29,7 +29,7 @@ const capabilities = [
     icon: Zap,
     num: "03",
     title: "E&I Infrastructure",
-    desc: "11kVA to 132kVA substations & overhead line construction",
+    desc: "11kV to 132kV substations & overhead line construction",
   },
   {
     icon: Wrench,
@@ -208,29 +208,31 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="hidden lg:block"
           >
-            <div className="grid grid-cols-2 gap-3">
+            <div className="divide-y divide-white/10 border-t border-white/10">
               {capabilities.map((cap, i) => (
                 <motion.div
                   key={cap.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.2 + i * 0.1 }}
-                  className="group border border-white/10 bg-white/4 p-5 backdrop-blur-sm transition-all duration-400 hover:border-accent/40 hover:bg-white/8"
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.55, delay: 1.2 + i * 0.1 }}
+                  className="group flex items-start gap-5 py-5 transition-all duration-300 hover:pl-2"
                 >
-                  <div className="mb-3 flex items-center justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center border border-accent/30 bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-                      <cap.icon size={16} />
+                  <span className="w-10 shrink-0 font-mono text-2xl font-light leading-none text-accent/40 pt-0.5">
+                    {cap.num}
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="text-[15px] font-semibold tracking-wide text-white transition-colors duration-300 group-hover:text-accent-light">
+                        {cap.title}
+                      </h3>
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-accent/30 bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+                        <cap.icon size={16} />
+                      </div>
                     </div>
-                    <span className="font-mono text-[10px] text-white/20">
-                      {cap.num}
-                    </span>
+                    <p className="mt-2 text-[13px] leading-relaxed text-white/55">
+                      {cap.desc}
+                    </p>
                   </div>
-                  <h3 className="text-[13px] font-semibold tracking-wide text-white/90">
-                    {cap.title}
-                  </h3>
-                  <p className="mt-1.5 text-[11px] leading-relaxed text-white/35">
-                    {cap.desc}
-                  </p>
                 </motion.div>
               ))}
             </div>
@@ -265,20 +267,23 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.6 }}
-          className="grid grid-cols-2 gap-2.5"
+          className="grid grid-cols-2 gap-3"
         >
           {capabilities.map((cap) => (
             <div
               key={cap.num}
-              className="border border-white/10 bg-white/4 p-4 backdrop-blur-sm"
+              className="border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
             >
-              <div className="mb-2 flex h-8 w-8 items-center justify-center border border-accent/30 bg-accent/10 text-accent">
-                <cap.icon size={14} />
+              <div className="mb-3 flex items-start justify-between">
+                <div className="flex h-10 w-10 items-center justify-center border border-accent/30 bg-accent/10 text-accent">
+                  <cap.icon size={17} />
+                </div>
+                <span className="font-mono text-xl font-light text-accent/30">{cap.num}</span>
               </div>
-              <h3 className="text-[12px] font-semibold text-white/85">
+              <h3 className="text-sm font-semibold text-white/90">
                 {cap.title}
               </h3>
-              <p className="mt-1 text-[10px] leading-snug text-white/30">
+              <p className="mt-1.5 text-[12px] leading-relaxed text-white/55">
                 {cap.desc}
               </p>
             </div>

@@ -12,9 +12,21 @@ export default function CTABanner() {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-primary">
-      <div className="mx-auto grid max-w-7xl lg:grid-cols-[1.2fr_1fr]">
-        {/* Left — Text content */}
-        <div className="relative z-10 px-6 py-20 lg:px-8 lg:py-28">
+      {/* Full edge-to-edge background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/img/cta.webp"
+          alt="SSPS energy services landscape"
+          fill
+          className="object-cover opacity-40"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/60" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+        {/* Text content */}
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,29 +117,6 @@ export default function CTABanner() {
               </div>
             ))}
           </motion.div>
-        </div>
-
-        {/* Right — Illustration panel */}
-        <div className="relative hidden lg:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 1.05 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="absolute inset-0"
-          >
-            {/* ILLUSTRATION: Panoramic desert energy landscape at sunset — 
-                 oil derricks, pipeline, power lines converging toward horizon.
-                 Warm charcoal sketch with copper accent highlights on dark bg */}
-            <Image
-              src="https://placehold.co/800x600/2E2E2E/B8860B?text=ILLUSTRATION%0ADesert+energy+landscape%0AOil+derricks+%7C+Pipeline%0APower+lines+at+sunset%0A(charcoal+sketch+on+dark)"
-              alt="SSPS energy services landscape"
-              fill
-              className="object-cover opacity-60"
-              sizes="50vw"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/70 to-transparent" />
         </div>
       </div>
     </section>

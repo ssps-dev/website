@@ -23,23 +23,23 @@ export const services: ServiceInfo[] = [
     slug: "drilling",
     number: "01",
     iconName: "Drill",
-    title: "Drilling & Upstream Well Services",
-    titleLine1: "Drilling & Upstream",
-    titleAccent: "Well Services",
+    title: "Drilling Services",
+    titleLine1: "Drilling",
+    titleAccent: "Services",
     subtitle: "Upstream Operations",
     description:
-      "End-to-end well lifecycle management — from initial ground penetration to complex interventions, testing, and handover. A versatile rig fleet operating across diverse geological environments.",
+      "We provide end-to-end drilling solutions for oil, gas, and industrial applications, ensuring safe, efficient, and cost-effective operations. Our expertise covers site preparation, execution, and completion with strict adherence to industry standards.",
     shortDescription:
-      "Oil, water & mining well drilling, rig fleet services, well interventions, and testing across diverse geological environments.",
+      "End-to-end drilling solutions for oil, gas, and industrial applications with wireline, slickline, nitrogen pumping, coil tubing, and more.",
     capabilities: [
-      "Oil, Water & Mining Well Drilling",
-      "1000HP – 2000HP Rig Services",
-      "550HP – 750HP Workover Rigs",
-      "Well Testing & Commissioning",
-      "Slick Line, Wire Line & Coiled Tubing",
+      "Wireline & Slickline Unit Services",
+      "Nitrogen Pumping & Coil Tubing",
+      "Hydraulic Workover Units (HWU)",
+      "Cementing & Well Testing",
+      "Mud Logging & Solids Control",
     ],
     image:
-      "https://placehold.co/720x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0ADrilling+rig+operation%0Ain+Oman+desert%0Awith+crew+%26+equipment%0A(warm+charcoal+pencil+sketch)",
+      "/img/drilling.webp",
     imageAlt: "Drilling rig operations in desert",
     stats: [
       { value: "500+", label: "Wells Drilled" },
@@ -67,7 +67,7 @@ export const services: ServiceInfo[] = [
       "Drilling Accessories & Parts",
     ],
     image:
-      "https://placehold.co/720x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0ADrilling+equipment+yard%0AMud+pumps+%26+rig+components%0Ain+organized+warehouse%0A(technical+pencil+sketch)",
+      "/img/equipments.webp",
     imageAlt: "Drilling equipment warehouse",
     stats: [
       { value: "40+", label: "OEM & Aftermarket Suppliers" },
@@ -86,16 +86,16 @@ export const services: ServiceInfo[] = [
     titleAccent: "Maintenance",
     subtitle: "Rig Servicing",
     description:
-      "Expert maintenance, repair, and overhaul services for drilling rigs and associated mechanical components — minimizing downtime, maximizing safety, and extending asset lifespan.",
+      "Our Operations & Maintenance (O&M) services ensure optimal performance and longevity of drilling and workover rigs. We focus on minimizing downtime, improving efficiency, and maintaining the highest safety standards.",
     shortDescription:
-      "Full-scale rig maintenance, component overhaul & repair, and preventative maintenance programs for heavy drilling machinery.",
+      "O&M services for drilling and workover rigs — minimizing downtime, improving efficiency, and maintaining the highest safety standards.",
     capabilities: [
       "Full-Scale Rig Maintenance",
       "Component Overhaul & Repair",
       "Preventative Maintenance Programs",
     ],
     image:
-      "https://placehold.co/720x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0ATechnicians+servicing%0Adrilling+rig+components%0Awith+tools+%26+parts%0A(detailed+pencil+sketch)",
+      "/img/maintenance.webp",
     imageAlt: "Rig maintenance technicians",
     stats: [
       { value: "24/7", label: "On-Site Crews" },
@@ -114,19 +114,19 @@ export const services: ServiceInfo[] = [
     titleAccent: "Instrumentation",
     subtitle: "E&I Infrastructure",
     description:
-      "Construction, installation, and management of high-voltage electrical infrastructure and control systems — tailored to the massive power demands of heavy industrial and energy sectors.",
+      "Construction, installation, and management of high-voltage electrical infrastructure and control systems — tailored to the demanding power requirements of heavy industrial and energy sectors.",
     shortDescription:
-      "11kVA to 132kVA power infrastructure, overhead line construction, substation builds, and complete E&I commissioning.",
+      "11kV to 132kV power infrastructure, overhead line construction, substation builds, and complete E&I commissioning.",
     capabilities: [
-      "High-Voltage Infrastructure (11–132 kVA)",
+      "High-Voltage Infrastructure (11–132 kV)",
       "Overhead Line Construction",
       "Substation Construction & Integration",
     ],
     image:
-      "https://placehold.co/720x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0AHigh+voltage+substation%0Awith+overhead+power+lines%0A%26+transformer+yard%0A(architectural+pencil+sketch)",
+      "/img/electric.webp",
     imageAlt: "High-voltage substation construction",
     stats: [
-      { value: "132", label: "kVA Max Rating" },
+      { value: "132kV", label: "Max Voltage Rating" },
       { value: "3", label: "Voltage Tiers" },
       { value: "E2E", label: "Survey to Energization" },
       { value: "IEC", label: "Standard Compliance" },
@@ -151,7 +151,7 @@ export const services: ServiceInfo[] = [
       "Cathodic Protection Systems",
     ],
     image:
-      "https://placehold.co/720x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0APipeline+construction%0Acrew+laying+pipe%0Ain+desert+terrain%0A(panoramic+pencil+sketch)",
+      "/img/pipeline.webp",
     imageAlt: "Pipeline construction crew in desert",
     stats: [
       { value: "4\"–48\"", label: "Diameter Range" },

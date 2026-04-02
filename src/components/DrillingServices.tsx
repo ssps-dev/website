@@ -11,7 +11,7 @@ import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "500+", label: "Wells Drilled" },
-  { value: "100–750", label: "HP Fleet Range" },
+  { value: "550–2000", label: "HP Fleet Range" },
   { value: "24/7", label: "Field Operations" },
   { value: "25+", label: "Years Experience" },
 ];
@@ -28,7 +28,7 @@ const wellTypes = [
     stat: "Primary",
     statLabel: "Revenue Wells",
     image:
-      "https://placehold.co/640x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0AOil+well+drilling+rig%0Awith+derrick+%26+crew%0A(charcoal+pencil+sketch)",
+      "/img/drilling/derrick.webp",
   },
   {
     title: "Water Well Drilling",
@@ -37,7 +37,7 @@ const wellTypes = [
     stat: "Essential",
     statLabel: "Infrastructure",
     image:
-      "https://placehold.co/640x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0AWater+well+drilling%0Abore+rig+in+arid+terrain%0A(pencil+sketch+style)",
+      "/img/drilling/water.webp",
   },
   {
     title: "Mining Well Drilling",
@@ -46,7 +46,7 @@ const wellTypes = [
     stat: "Specialized",
     statLabel: "Exploration",
     image:
-      "https://placehold.co/640x480/E8E4E0/3D3D3D?text=ILLUSTRATION%0AMining+exploration+drill%0Ain+rocky+terrain%0A(pencil+sketch+style)",
+      "/img/drilling/mining.webp",
   },
 ];
 
@@ -56,7 +56,7 @@ const wellTypes = [
 
 const rigs = [
   {
-    hp: "1000",
+    hp: "550",
     unit: "HP",
     type: "Rig Services",
     tagline: "Rapid Deployment",
@@ -69,7 +69,7 @@ const rigs = [
     ],
   },
   {
-    hp: "2000",
+    hp: "1000",
     unit: "HP",
     type: "Rig Services",
     tagline: "Intermediate Power",
@@ -82,7 +82,7 @@ const rigs = [
     ],
   },
   {
-    hp: "550",
+    hp: "1500",
     unit: "HP",
     type: "Workover Rig",
     tagline: "Heavy Intervention",
@@ -95,7 +95,7 @@ const rigs = [
     ],
   },
   {
-    hp: "750",
+    hp: "2000",
     unit: "HP",
     type: "Workover Rig",
     tagline: "Maximum Capability",
@@ -115,28 +115,64 @@ const rigs = [
 
 const interventions = [
   {
-    name: "Slick Line",
+    name: "Wireline Unit Services",
     description:
-      "Single-strand wire for downhole gauge operations, plug setting & retrieval, and flow control device manipulation.",
-    detail: "Fastest, most cost-effective routine intervention",
+      "We offer advanced wireline services for well intervention, logging, and diagnostics. Our solutions help operators gain precise subsurface data and enhance well productivity.",
+    detail: "Advanced well intervention, logging & diagnostics",
   },
   {
-    name: "Wire Line",
+    name: "Slickline Unit Services",
     description:
-      "Multi-conductor braided cable for well logging, perforating, casing inspection, and cement bond evaluation.",
-    detail: "Real-time electrical data for formation evaluation",
+      "Our slickline services are designed for efficient well maintenance and intervention. We handle tasks like tool deployment, well cleaning, and minor repairs with precision and reliability.",
+    detail: "Efficient well maintenance & tool deployment",
   },
   {
-    name: "Coiled Tubing",
+    name: "Nitrogen Pumping Unit",
     description:
-      "Continuous tubing for well cleanout, acid stimulation, nitrogen lifts, and milling operations.",
-    detail: "Through-tubing without pulling completions",
+      "We provide nitrogen pumping services for well stimulation, purging, pressure testing, and pipeline cleaning. Our systems ensure safe and controlled operations in critical environments.",
+    detail: "Well stimulation, purging & pressure testing",
   },
   {
-    name: "Nitrogen Packaging",
+    name: "Hydraulic Workover Units (HWU)",
     description:
-      "High-pressure nitrogen for well unloading, foam cleanout, gas-lift kickoff, and wellbore displacement.",
-    detail: "Continuous flow & slug applications on-site",
+      "Specialized services for well intervention and maintenance without removing the wellhead, ensuring faster and safer operations.",
+    detail: "Well intervention without wellhead removal",
+  },
+  {
+    name: "Coil Tubing Services",
+    description:
+      "Efficient solutions for well cleaning, stimulation, and intervention using continuous tubing technology.",
+    detail: "Continuous tubing for cleaning & stimulation",
+  },
+  {
+    name: "Cementing Units",
+    description:
+      "High-performance cementing services for well integrity, zonal isolation, and structural stability.",
+    detail: "Well integrity & zonal isolation",
+  },
+  {
+    name: "Mud Logging & Solids Control Systems",
+    description:
+      "Real-time monitoring of drilling parameters and effective solids control to optimize drilling performance.",
+    detail: "Real-time drilling parameter monitoring",
+  },
+  {
+    name: "Well Testing Equipment",
+    description:
+      "Comprehensive well testing services to evaluate reservoir performance and production potential.",
+    detail: "Reservoir performance evaluation",
+  },
+  {
+    name: "Air Compressor & Booster Units",
+    description:
+      "High-capacity air systems for drilling, cleaning, and pressure applications.",
+    detail: "High-capacity air for drilling & pressure applications",
+  },
+  {
+    name: "Diesel Generator (DG) Sets",
+    description:
+      "Reliable power backup and supply solutions for remote oilfield and industrial operations.",
+    detail: "Power supply for remote oilfield operations",
   },
 ];
 
@@ -451,7 +487,7 @@ export default function DrillingServices() {
                 className="relative aspect-[4/5] overflow-hidden bg-bg"
               >
                 <Image
-                  src="https://placehold.co/640x800/E8E4E0/3D3D3D?text=ILLUSTRATION%0AWell+testing+spread%0Aseparator+%26+burner%0Adata+monitoring+crew%0A(warm+pencil+sketch)"
+                  src="/img/drilling/testing.webp"
                   alt="Well testing and commissioning"
                   fill
                   className="object-cover"
@@ -483,73 +519,42 @@ export default function DrillingServices() {
               01.05
             </span>
             <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
-              Specialized Interventions
+              Our Drilling Services
             </span>
             <h3 className="mt-3 text-2xl font-extralight tracking-tight text-white md:text-3xl">
-              Four techniques. Every downhole challenge covered.
+              Comprehensive solutions for every drilling challenge.
             </h3>
           </motion.div>
 
-          {/* Bento grid — 1 large + 3 stacked */}
-          <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
-            {/* Large card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-between border border-white/10 bg-white/[0.04] p-8 lg:p-12"
-            >
-              <div>
-                <span className="font-mono text-[10px] text-accent/50">
-                  05.01
-                </span>
-                <h4 className="mt-3 text-xl font-light tracking-tight text-white md:text-2xl">
-                  {interventions[0].name}
-                </h4>
-                <p className="mt-5 text-[15px] leading-[1.85] text-white/55">
-                  {interventions[0].description}
-                </p>
-              </div>
-              <div className="mt-8 border-t border-white/10 pt-5">
-                <span className="text-[12px] font-medium text-accent-light">
-                  {interventions[0].detail}
-                </span>
-              </div>
-            </motion.div>
-
-            {/* 3 stacked cards */}
-            <div className="flex flex-col gap-4">
-              {interventions.slice(1).map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: (i + 1) * 0.08 }}
-                  viewport={{ once: true }}
-                  className="flex-1 border border-white/10 bg-white/[0.04] p-6 lg:p-8"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="font-mono text-[10px] text-accent/50">
-                        05.0{i + 2}
-                      </span>
-                      <h4 className="mt-2 text-[16px] font-medium tracking-tight text-white">
-                        {item.name}
-                      </h4>
-                      <p className="mt-3 text-[13px] leading-relaxed text-white/50">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4 border-t border-white/10 pt-3">
-                    <span className="text-[11px] font-medium text-accent-light">
-                      {item.detail}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Services grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {interventions.map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-between border border-white/10 bg-white/[0.04] p-6 lg:p-8"
+              >
+                <div>
+                  <span className="font-mono text-[10px] text-accent/50">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4 className="mt-2 text-[16px] font-medium tracking-tight text-white">
+                    {item.name}
+                  </h4>
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/50">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="mt-5 border-t border-white/10 pt-3">
+                  <span className="text-[11px] font-medium text-accent-light">
+                    {item.detail}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Closing CTA */}
