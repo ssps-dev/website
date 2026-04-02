@@ -8,14 +8,6 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-  "services": [
-    {
-      // Self-reference service binding used for caching — service name must match the worker name above
-      // See https://opennext.js.org/cloudflare/caching
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "ssps-hq-website"
-    }
-  ],
   "images": {
     // Enables Cloudflare's built-in image optimization
     // See https://opennext.js.org/cloudflare/howtos/image
