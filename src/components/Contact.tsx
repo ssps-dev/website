@@ -36,12 +36,11 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-6"
         >
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <div className="h-px w-8 bg-accent" />
-            <span className="text-[10px] font-semibold tracking-[0.35em] text-accent uppercase">
-              Get In Touch
+            <span className="text-[10px] font-semibold tracking-[0.35em] text-accent-dark uppercase">
             </span>
           </div>
           <h2 className="text-3xl font-extralight tracking-tight text-heading md:text-4xl lg:text-[3.2rem]">
@@ -50,7 +49,7 @@ export default function Contact() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr] lg:gap-10">
           {/* ── Left — Info Cards ── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -58,13 +57,13 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <p className="mb-10 text-[15px] leading-relaxed text-body">
+            <p className="mb-5 text-justify text-[14px] leading-relaxed text-body">
               Whether you need drilling services, equipment supply, pipeline
               construction, or electrical infrastructure — our team is ready to
               provide solutions tailored to your requirements.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               {contactInfo.map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -72,9 +71,9 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   viewport={{ once: true }}
-                  className="border border-border bg-bg p-5 transition-colors duration-300 hover:border-accent/30"
+                  className="border border-border bg-bg p-4 transition-colors duration-300 hover:border-accent/30"
                 >
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center bg-accent-subtle text-accent">
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center bg-accent-subtle text-accent">
                     <item.icon size={16} />
                   </div>
                   <p className="text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
@@ -88,7 +87,7 @@ export default function Contact() {
             </div>
 
             {/* Operational areas */}
-            <div className="mt-8 border-t border-border pt-6">
+            <div className="mt-5 border-t border-border pt-4">
               <p className="text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                 Operating Across
               </p>
@@ -105,25 +104,27 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="border border-border bg-bg p-8 lg:p-10"
+            className="border border-border bg-bg p-6 lg:p-8"
           >
-            <form className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
+            <form className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                  <label htmlFor="contact-name" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                     Full Name
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors placeholder:text-light focus:border-accent"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                  <label htmlFor="contact-company" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                     Company
                   </label>
                   <input
+                    id="contact-company"
                     type="text"
                     className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors placeholder:text-light focus:border-accent"
                     placeholder="Company name"
@@ -131,22 +132,24 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                  <label htmlFor="contact-email" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                     Email
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors placeholder:text-light focus:border-accent"
                     placeholder="email@company.com"
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                  <label htmlFor="contact-phone" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                     Phone
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors placeholder:text-light focus:border-accent"
                     placeholder="+968 XXXX XXXX"
@@ -155,10 +158,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                <label htmlFor="contact-service" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                   Service Required
                 </label>
-                <select className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors focus:border-accent">
+                <select id="contact-service" className="w-full border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors focus:border-accent">
                   <option value="">Select a service</option>
                   <option value="drilling">Drilling & Well Services</option>
                   <option value="equipment">Equipment & Rig Trading</option>
@@ -169,10 +172,11 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
+                <label htmlFor="contact-details" className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted uppercase">
                   Project Details
                 </label>
                 <textarea
+                  id="contact-details"
                   rows={4}
                   className="w-full resize-none border border-border bg-transparent px-4 py-3 text-[14px] text-heading outline-none transition-colors placeholder:text-light focus:border-accent"
                   placeholder="Tell us about your project requirements, location, and timeline..."

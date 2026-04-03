@@ -91,14 +91,14 @@ export default function PipelineConstruction() {
       {/* ═══════════════════════════════════════
           ZONE 3 — Pipeline Types (3 columns)
          ═══════════════════════════════════════ */}
-      <div className="section-padding bg-bg">
+      <div id="pipeline-types" className="scroll-mt-20 section-padding bg-bg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 flex flex-col gap-5 lg:mb-20 lg:flex-row lg:items-end lg:justify-between"
+            className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between"
           >
             <div>
               <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
@@ -108,13 +108,13 @@ export default function PipelineConstruction() {
                 Three pipeline disciplines
               </h3>
             </div>
-            <p className="max-w-sm text-[13px] leading-relaxed text-muted">
+            <p className="max-w-sm text-justify text-[13px] leading-relaxed text-muted">
               Hydrocarbon, water, and multi-phase — each engineered to the
               standards and materials its service demands.
             </p>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {pipelineTypes.map((pl, i) => (
               <motion.div
                 key={pl.type}
@@ -136,7 +136,7 @@ export default function PipelineConstruction() {
 
                 {/* Description */}
                 <div className="flex-1 px-7 pt-6 pb-4">
-                  <p className="text-[13px] leading-relaxed text-body">
+                  <p className="text-justify text-[13px] leading-relaxed text-body">
                     {pl.description}
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export default function PipelineConstruction() {
       {/* ═══════════════════════════════════════
           ZONE 4 — Integrity & Commissioning (split with image)
          ═══════════════════════════════════════ */}
-      <div className="bg-bg py-4">
+      <div id="integrity-testing" className="scroll-mt-20 bg-bg py-4">
         <div className="mx-auto max-w-7xl lg:px-0">
           <div className="grid items-stretch lg:grid-cols-2">
             {/* Left — image */}
@@ -181,7 +181,7 @@ export default function PipelineConstruction() {
             </div>
 
             {/* Right — integrity services */}
-            <div className="px-8 py-16 lg:px-16 lg:py-20">
+            <div className="px-6 py-10 lg:px-12 lg:py-12">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -191,17 +191,17 @@ export default function PipelineConstruction() {
                 <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
                   Testing, Protection & Commissioning
                 </span>
-                <h3 className="mt-3 text-[1.5rem] font-light tracking-tight text-heading md:text-[1.75rem]">
+                <h3 className="mt-3 text-xl font-light tracking-tight text-heading md:text-2xl">
                   Pipeline Integrity Services
                 </h3>
-                <p className="mt-5 text-[15px] leading-[1.85] text-body">
+                <p className="mt-3 text-justify text-[15px] leading-[1.85] text-body">
                   Beyond laying pipe, we deliver the complete infrastructure
                   package — every pipeline leaves our care pressure-tested,
                   integrity-verified, and ready for continuous service.
                 </p>
               </motion.div>
 
-              <div className="mt-10 space-y-0">
+              <div className="mt-6 space-y-0">
                 {integrityServices.map((svc, i) => (
                   <motion.div
                     key={svc.title}
@@ -223,7 +223,7 @@ export default function PipelineConstruction() {
                         <h4 className="text-[14px] font-medium tracking-tight text-heading">
                           {svc.title}
                         </h4>
-                        <p className="mt-2 text-[13px] leading-relaxed text-muted">
+                        <p className="mt-1.5 text-justify text-[13px] leading-relaxed text-muted">
                           {svc.description}
                         </p>
                       </div>

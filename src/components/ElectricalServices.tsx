@@ -114,19 +114,19 @@ export default function ElectricalServices() {
       {/* ═══════════════════════════════════════
           ZONE 1 — Voltage Tier Cards
          ═══════════════════════════════════════ */}
-      <div className="py-16 bg-bg lg:py-20">
+      <div className="py-10 bg-bg lg:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid gap-4 sm:grid-cols-3"
+            className="grid gap-3 sm:grid-cols-3"
           >
             {voltageTiers.map((tier) => (
               <div
                 key={tier.voltage}
-                className="group border border-border bg-surface p-8 transition-colors duration-300 hover:border-accent/40 lg:p-10"
+                className="group border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent/40 lg:p-8"
               >
                 <div className="flex items-baseline gap-1">
                   <span className="text-[3rem] font-extralight leading-none tracking-tighter text-heading transition-colors duration-300 group-hover:text-accent lg:text-[3.5rem]">
@@ -139,7 +139,7 @@ export default function ElectricalServices() {
                 <span className="mt-2 block text-[10px] font-semibold tracking-[0.25em] text-accent uppercase">
                   {tier.label}
                 </span>
-                <p className="mt-4 text-[13px] leading-relaxed text-muted">
+                <p className="mt-3 text-justify text-[13px] leading-relaxed text-muted">
                   {tier.scope}
                 </p>
               </div>
@@ -149,119 +149,121 @@ export default function ElectricalServices() {
       </div>
 
       {/* ═══════════════════════════════════════
-          ZONE 2 — Overhead Lines + Substation (split editorial)
+          ZONE 2 — Overhead Lines + Substation (cards with image on top)
          ═══════════════════════════════════════ */}
-      <div className="bg-bg py-4">
+      <div id="overhead-lines" className="scroll-mt-20 bg-bg py-4">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Section A — Overhead Line Construction */}
-          <div className="grid items-stretch border-b border-border lg:grid-cols-2">
-            {/* Image */}
-            <div className="relative min-h-72 bg-bg lg:min-h-96">
-              <Image
-                src="/img/overhead.webp"
-                alt="Overhead power line construction"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute bottom-0 left-0 bg-primary px-5 py-3">
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-accent-light uppercase">
-                  Transmission & Distribution
+          <div className="grid gap-3 sm:grid-cols-2">
+            {/* Card A — Overhead Line Construction */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group flex flex-col border border-border bg-surface transition-colors duration-300 hover:border-accent/40"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
+                <Image
+                  src="/img/overhead.webp"
+                  alt="Overhead power line construction"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-0 left-0 bg-primary px-5 py-3">
+                  <span className="text-[10px] font-semibold tracking-[0.2em] text-accent-light uppercase">
+                    Transmission & Distribution
+                  </span>
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="flex flex-1 flex-col px-6 pt-6 pb-8">
+                <span className="mb-3 font-mono text-[11px] text-accent/40">
+                  04.01
                 </span>
-              </div>
-            </div>
-
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center px-8 py-14 lg:px-16 lg:py-20"
-            >
-              <span className="mb-2 font-mono text-[11px] text-accent/40">
-                04.01
-              </span>
-              <h3 className="text-[1.5rem] font-light tracking-tight text-heading md:text-[1.75rem]">
-                Overhead Line Construction
-              </h3>
-              <p className="mt-5 text-[15px] leading-[1.85] text-body">
-                Our line construction crews handle the full scope — route
-                survey, tower erection, conductor stringing, tensioning, and
-                commissioning. We build overhead power lines that connect
-                generation sources to substations and substations to end users,
-                engineered for harsh climates and challenging terrain.
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                {[
-                  "Route survey",
-                  "Tower erection",
-                  "Conductor stringing",
-                  "Line commissioning",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    <span className="text-[12px] text-muted">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Section B — Substation Construction */}
-          <div className="grid items-stretch lg:grid-cols-2">
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center px-8 py-14 lg:px-16 lg:py-20"
-            >
-              <span className="mb-2 font-mono text-[11px] text-accent/40">
-                04.02
-              </span>
-              <h3 className="text-[1.5rem] font-light tracking-tight text-heading md:text-[1.75rem]">
-                Substation Construction & Integration
-              </h3>
-              <p className="mt-5 text-[15px] leading-[1.85] text-body">
-                We deliver substations from foundation to energization — civil
-                works, transformer installation, bus-bar assembly, switchgear
-                fitting, protection system configuration, and full
-                commissioning. Every substation is built to international
-                standards with rigorous safety compliance and thorough testing
-                before handover.
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                {[
-                  "Civil & structural",
-                  "Bus-bar assembly",
-                  "Protection config",
-                  "Commissioning",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    <span className="text-[12px] text-muted">{item}</span>
-                  </div>
-                ))}
+                <h3 className="text-xl font-light tracking-tight text-heading">
+                  Overhead Line Construction
+                </h3>
+                <p className="mt-3 text-justify text-[14px] leading-[1.85] text-body">
+                  Our line construction crews handle the full scope — route
+                  survey, tower erection, conductor stringing, tensioning, and
+                  commissioning. We build overhead power lines that connect
+                  generation sources to substations and substations to end users,
+                  engineered for harsh climates and challenging terrain.
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {[
+                    "Route survey",
+                    "Tower erection",
+                    "Conductor stringing",
+                    "Line commissioning",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="text-[12px] text-muted">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
-            {/* Image */}
-            <div className="relative min-h-72 bg-bg lg:min-h-96">
-              <Image
-                src="/img/substation.webp"
-                alt="Electrical substation with transformer yard"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute bottom-0 right-0 bg-primary px-5 py-3">
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-accent-light uppercase">
-                  Complete Substation Delivery
-                </span>
+            {/* Card B — Substation Construction */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              viewport={{ once: true }}
+              className="group flex flex-col border border-border bg-surface transition-colors duration-300 hover:border-accent/40"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
+                <Image
+                  src="/img/substation.webp"
+                  alt="Electrical substation with transformer yard"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-0 left-0 bg-primary px-5 py-3">
+                  <span className="text-[10px] font-semibold tracking-[0.2em] text-accent-light uppercase">
+                    Complete Substation Delivery
+                  </span>
+                </div>
               </div>
-            </div>
+
+              {/* Text */}
+              <div className="flex flex-1 flex-col px-6 pt-6 pb-8">
+                <span className="mb-3 font-mono text-[11px] text-accent/40">
+                  04.02
+                </span>
+                <h3 className="text-xl font-light tracking-tight text-heading">
+                  Substation Construction & Integration
+                </h3>
+                <p className="mt-3 text-justify text-[14px] leading-[1.85] text-body">
+                  We deliver substations from foundation to energization — civil
+                  works, transformer installation, bus-bar assembly, switchgear
+                  fitting, protection system configuration, and full
+                  commissioning. Every substation is built to international
+                  standards with rigorous safety compliance and thorough testing
+                  before handover.
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {[
+                    "Civil & structural",
+                    "Bus-bar assembly",
+                    "Protection config",
+                    "Commissioning",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="text-[12px] text-muted">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -269,14 +271,14 @@ export default function ElectricalServices() {
       {/* ═══════════════════════════════════════
           ZONE 3 — Capabilities Grid (6-cell)
          ═══════════════════════════════════════ */}
-      <div className="section-padding bg-bg">
+      <div id="switchgear-protection" className="scroll-mt-20 section-padding bg-bg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-14 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between"
+            className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between"
           >
             <div>
               <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
@@ -286,7 +288,7 @@ export default function ElectricalServices() {
                 End-to-end E&I competencies
               </h3>
             </div>
-            <p className="max-w-sm text-[13px] leading-relaxed text-muted">
+            <p className="max-w-sm text-justify text-[13px] leading-relaxed text-muted">
               From protection coordination to SCADA integration — the full
               electrical & instrumentation skillset under one roof.
             </p>
@@ -300,15 +302,15 @@ export default function ElectricalServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-surface p-7 lg:p-9"
+                className="bg-surface p-5 lg:p-7"
               >
                 <span className="mb-3 block font-mono text-[10px] text-accent/40">
                   0{i + 1}
                 </span>
-                <h4 className="text-[15px] font-medium tracking-tight text-heading">
+                <h4 className="text-[16px] font-medium tracking-tight text-heading">
                   {cap.title}
                 </h4>
-                <p className="mt-3 text-[13px] leading-relaxed text-muted">
+                <p className="mt-2 text-justify text-[13px] leading-relaxed text-muted">
                   {cap.description}
                 </p>
               </motion.div>
@@ -325,13 +327,13 @@ export default function ElectricalServices() {
           <div className="hatch-pattern h-full w-full" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-14">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-14 text-center lg:mb-16"
+            className="mb-8 text-center lg:mb-10"
           >
             <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
               Project Delivery
@@ -378,9 +380,9 @@ export default function ElectricalServices() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-16 flex flex-col items-start gap-8 border-t border-white/10 pt-10 md:flex-row md:items-center md:justify-between"
+            className="mt-10 flex flex-col items-start gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between"
           >
-            <p className="max-w-lg text-[14px] leading-relaxed text-white/40">
+            <p className="max-w-lg text-justify text-[14px] leading-relaxed text-white/40">
               From 11kV distribution to 132kV high-voltage substations — we
               deliver the electrical backbone that powers critical energy
               infrastructure.
@@ -402,7 +404,7 @@ export default function ElectricalServices() {
       {/* ═══════════════════════════════════════
           ZONE 5 — Piping Materials
          ═══════════════════════════════════════ */}
-      <div className="bg-bg py-16 lg:py-20">
+      <div id="industrial-piping" className="scroll-mt-20 bg-bg py-10 lg:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -416,7 +418,7 @@ export default function ElectricalServices() {
             <h3 className="mt-3 text-2xl font-extralight tracking-tight text-heading md:text-3xl">
               Supply & installation of industrial piping
             </h3>
-            <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-muted">
+            <p className="mt-3 text-justify max-w-xl text-[13px] leading-relaxed text-muted">
               We work across a range of pipe materials suited to varying
               pressure, chemical, and burial requirements.
             </p>
@@ -458,12 +460,12 @@ export default function ElectricalServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 viewport={{ once: true }}
-                className="bg-surface p-7 lg:p-9"
+                className="bg-surface p-5 lg:p-7"
               >
                 <span className="font-mono text-[10px] text-accent/40">
                   {mat.code}
                 </span>
-                <h4 className="mt-2 text-[15px] font-medium tracking-tight text-heading">
+                <h4 className="mt-2 text-[16px] font-medium tracking-tight text-heading">
                   {mat.name}
                 </h4>
                 <ul className="mt-4 space-y-2">
@@ -483,14 +485,14 @@ export default function ElectricalServices() {
       {/* ═══════════════════════════════════════
           ZONE 6 — Installations
          ═══════════════════════════════════════ */}
-      <div className="bg-surface py-16 lg:py-20">
+      <div id="electrical-installations" className="scroll-mt-20 bg-surface py-10 lg:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-14 lg:mb-16"
+            className="mb-8 lg:mb-10"
           >
             <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
               Installations
@@ -498,7 +500,7 @@ export default function ElectricalServices() {
             <h3 className="mt-3 text-2xl font-extralight tracking-tight text-heading md:text-3xl">
               Comprehensive electrical installations
             </h3>
-            <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-muted">
+            <p className="mt-3 text-justify max-w-xl text-[13px] leading-relaxed text-muted">
               Full-scope installation services covering electrification,
               instrumentation, automation, and specialised systems for industrial
               and oilfield facilities.
@@ -532,7 +534,7 @@ export default function ElectricalServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.03 }}
                 viewport={{ once: true }}
-                className="bg-bg p-6 lg:p-8"
+                className="bg-bg p-4 lg:p-6"
               >
                 <span className="mb-2 block font-mono text-[10px] text-accent/40">
                   {String(i + 1).padStart(2, "0")}
@@ -552,14 +554,14 @@ export default function ElectricalServices() {
       {/* ═══════════════════════════════════════
           ZONE 7 — Erection & Commissioning
          ═══════════════════════════════════════ */}
-      <div className="bg-bg py-16 lg:py-20">
+      <div id="panel-erection" className="scroll-mt-20 bg-bg py-10 lg:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-14 lg:mb-16"
+            className="mb-8 lg:mb-10"
           >
             <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
               Erection & Commissioning
@@ -567,7 +569,7 @@ export default function ElectricalServices() {
             <h3 className="mt-3 text-2xl font-extralight tracking-tight text-heading md:text-3xl">
               Panel erection & system commissioning
             </h3>
-            <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-muted">
+            <p className="mt-3 text-justify max-w-xl text-[13px] leading-relaxed text-muted">
               End-to-end erection and commissioning of electrical panels, poles,
               distribution boards, and all instrumentation works.
             </p>
@@ -589,7 +591,7 @@ export default function ElectricalServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-surface p-6 lg:p-8"
+                className="bg-surface p-4 lg:p-6"
               >
                 <span className="mb-2 block font-mono text-[10px] text-accent/40">
                   {String(i + 1).padStart(2, "0")}

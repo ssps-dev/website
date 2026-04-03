@@ -35,15 +35,15 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-primary px-6 pb-8 pt-16 text-white lg:pt-20">
+    <footer className="border-t border-white/10 bg-primary px-6 pb-6 pt-10 text-white lg:pt-14">
       <div className="mx-auto max-w-7xl">
         {/* Top accent line */}
-        <div className="mb-12 h-[2px] w-16 bg-accent" />
+        <div className="mb-8 h-[2px] w-16 bg-accent" />
 
-        <div className="grid gap-12 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
           {/* Brand + Contact */}
           <div>
-            <Link href="/" className="mb-6 flex items-center gap-3">
+            <Link href="/" className="mb-4 flex items-center gap-3">
               <div className="flex h-9 w-14 items-center justify-center border border-white/15">
                 <div className="flex gap-[3px]">
                   {Array.from({ length: 7 }).map((_, i) => (
@@ -58,22 +58,22 @@ export default function Footer() {
                 <span className="text-[16px] font-semibold tracking-[0.12em] text-white">
                   SSPS
                 </span>
-                <span className="text-[8px] font-medium tracking-[0.15em] uppercase text-white/40">
+                <span className="text-[9px] font-medium tracking-[0.15em] uppercase text-white/60">
                   Seven Star Petroleum Services
                 </span>
               </div>
             </Link>
-            <p className="mb-6 max-w-xs text-[13px] leading-relaxed text-white/45">
+            <p className="mb-4 max-w-xs text-justify text-[13px] leading-relaxed text-white/60">
               Full-spectrum oilfield services — drilling, equipment supply,
               maintenance, electrical infrastructure, and pipeline construction
               across the Sultanate of Oman.
             </p>
 
             {/* Contact details */}
-            <ul className="mb-6 space-y-2.5">
+            <ul className="mb-4 space-y-2">
               {contactItems.map((item) => {
                 const content = (
-                  <span className="flex items-start gap-2.5 text-[12px] text-white/40 transition-colors duration-200 hover:text-white/70">
+                  <span className="flex items-start gap-2.5 text-[12px] text-white/60 transition-colors duration-200 hover:text-white/80">
                     <item.icon size={13} className="mt-px shrink-0 text-accent/60" />
                     {item.value}
                   </span>
@@ -90,7 +90,7 @@ export default function Footer() {
               })}
             </ul>
 
-            <div className="flex items-center gap-4 text-[10px] font-medium tracking-[0.15em] text-white/25 uppercase">
+            <div className="flex items-center gap-4 text-[10px] font-medium tracking-[0.15em] text-white/50 uppercase">
               <span>Safety</span>
               <span className="h-px w-3 bg-accent/40" />
               <span>Reliability</span>
@@ -102,10 +102,10 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="mb-5 text-[10px] font-semibold tracking-[0.3em] uppercase text-white/35">
+              <h4 className="mb-3 text-[10px] font-semibold tracking-[0.3em] uppercase text-white/55">
                 {title}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -122,14 +122,14 @@ export default function Footer() {
         </div>
 
         {/* Legal strip */}
-        <div className="mt-12 border-t border-white/8 pt-8">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mt-8 border-t border-white/8 pt-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             {/* Left — copyright + registration */}
             <div className="space-y-1.5">
-              <p className="text-[11px] text-white/30">
+              <p className="text-[11px] text-white/50">
                 © {new Date().getFullYear()} Seven Star Petroleum Services LLC. All rights reserved.
               </p>
-              <p className="text-[10px] text-white/20">
+              <p className="text-[10px] text-white/40">
                 Registered in the Sultanate of Oman · Commercial Registration No. XXXXXXXX ·
                 Operating under the laws of the Sultanate of Oman
               </p>
@@ -139,21 +139,21 @@ export default function Footer() {
             <div className="flex flex-wrap items-center gap-5">
               <Link
                 href="/privacy-policy"
-                className="text-[10px] text-white/30 transition-colors duration-200 hover:text-white/60"
+                className="text-[10px] text-white/50 transition-colors duration-200 hover:text-white/80"
               >
                 Privacy Policy
               </Link>
               <span className="h-3 w-px bg-white/15" />
               <Link
                 href="/terms-of-service"
-                className="text-[10px] text-white/30 transition-colors duration-200 hover:text-white/60"
+                className="text-[10px] text-white/50 transition-colors duration-200 hover:text-white/80"
               >
                 Terms of Service
               </Link>
               <span className="h-3 w-px bg-white/15" />
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group flex items-center gap-2 border border-white/15 px-4 py-2 text-[10px] font-medium tracking-[0.15em] uppercase text-white/40 transition-all duration-300 hover:border-white/30 hover:text-white"
+                className="group flex items-center gap-2 border border-white/25 px-4 py-3 text-[10px] font-medium tracking-[0.15em] uppercase text-white/60 transition-all duration-300 hover:border-white/50 hover:text-white"
               >
                 Back to top
                 <ArrowUp

@@ -77,6 +77,7 @@ export default function ElectricalPage() {
           description={service.description}
           stats={service.stats}
           iconName={service.iconName}
+          image={service.image}
         />
         <ElectricalServices />
         <CTABanner />

@@ -39,25 +39,21 @@ export default function OtherServices({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14 lg:mb-16"
+          className="mb-8 lg:mb-10"
         >
-          <div className="mb-5 flex items-center gap-3">
+          <div className="mb-3 flex items-center gap-3">
             <div className="h-px w-8 bg-accent" />
-            <span className="text-[10px] font-semibold tracking-[0.35em] text-accent uppercase">
+            <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
               More From SSPS
             </span>
           </div>
-          <h2 className="text-2xl font-extralight tracking-tight text-heading md:text-3xl lg:text-[2.5rem]">
+          <h2 className="text-2xl font-extralight tracking-tight text-heading md:text-3xl lg:text-[3.2rem]">
             Explore Our Other Services
           </h2>
-          <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-muted">
-            Integrated oilfield services designed to work together — from first
-            drill to final pipeline weld.
-          </p>
         </motion.div>
 
         {/* Service Cards Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {otherServices.map((service, i) => {
             const Icon = iconMap[service.iconName];
             return (
@@ -70,10 +66,10 @@ export default function OtherServices({
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex h-full flex-col border border-border bg-surface p-7 transition-all duration-300 hover:border-accent/40 hover:shadow-sm lg:p-8"
+                  className="group flex h-full flex-col border border-border bg-surface p-5 transition-all duration-300 hover:border-accent/40 hover:shadow-sm lg:p-6"
                 >
                   {/* Number + Icon */}
-                  <div className="mb-6 flex items-center justify-between">
+                  <div className="mb-4 flex items-center justify-between">
                     <span className="font-mono text-[2rem] font-extralight leading-none tracking-tighter text-border-strong transition-colors duration-300 group-hover:text-accent/30">
                       {service.number}
                     </span>
@@ -84,20 +80,14 @@ export default function OtherServices({
 
                   {/* Content */}
                   <div className="flex-1">
-                    <span className="mb-1 block text-[10px] font-semibold tracking-[0.2em] text-accent uppercase">
-                      {service.subtitle}
-                    </span>
-                    <h3 className="text-[15px] font-medium tracking-tight text-heading">
+                    <h3 className="text-[18px] font-semibold tracking-tight text-heading">
                       {service.title}
                     </h3>
-                    <p className="mt-3 text-[13px] leading-relaxed text-muted">
-                      {service.shortDescription}
-                    </p>
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-6 flex items-center gap-2 text-[12px] font-semibold tracking-wide text-accent transition-colors duration-300 group-hover:text-accent-light">
-                    Learn More
+                  <div className="mt-4 flex items-center gap-2 text-[12px] font-semibold tracking-wide text-accent transition-colors duration-300 group-hover:text-accent-light">
+                    Learn More<span className="sr-only"> — {service.title}</span>
                     <ArrowRight
                       size={13}
                       className="transition-transform duration-300 group-hover:translate-x-1"
@@ -115,7 +105,7 @@ export default function OtherServices({
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-14 flex flex-col items-center gap-4 border-t border-border pt-10 text-center sm:flex-row sm:justify-center"
+          className="mt-8 flex flex-col items-center gap-3 border-t border-border pt-6 text-center sm:flex-row sm:justify-center"
         >
           <p className="text-[14px] text-muted">
             Need a tailored solution across multiple disciplines?

@@ -75,12 +75,11 @@ export default function WhyUs() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-16 max-w-2xl lg:mb-20"
+          className="mb-6 max-w-2xl lg:mb-8"
         >
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-3 flex items-center gap-3">
             <div className="h-px w-8 bg-accent" />
-            <span className="text-[10px] font-semibold tracking-[0.35em] text-accent uppercase">
-              Why SSPS
+            <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-dark uppercase">
             </span>
           </div>
           <h2 className="text-3xl font-extralight tracking-tight text-heading md:text-4xl lg:text-[3.2rem]">
@@ -99,14 +98,14 @@ export default function WhyUs() {
               />
             </span>
           </h2>
-          <p className="mt-6 text-[15px] leading-relaxed text-body">
+          <p className="mt-3 text-justify text-[14px] leading-relaxed text-body">
             Safety, reliability, and long-term partnership — the pillars that
             make SSPS the trusted choice for oilfield services in Oman.
           </p>
         </motion.div>
 
-        {/* ── Reason rows — horizontal card layout ── */}
-        <div className="space-y-0 border-t border-border">
+        {/* ── Reason cards — 3-column grid ── */}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
@@ -114,34 +113,32 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               viewport={{ once: true }}
-              className="group grid items-center gap-6 border-b border-border py-8 md:grid-cols-[auto_1fr_auto] md:gap-10 lg:py-10"
+              className="group border border-border bg-surface p-5 transition-colors duration-300 hover:border-accent/40"
             >
-              {/* Icon + Title */}
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-accent-subtle text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-                  <reason.icon size={20} />
+              {/* Icon + Stat row */}
+              <div className="mb-4 flex items-start justify-between">
+                <div className="flex h-10 w-10 items-center justify-center bg-accent-subtle text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+                  <reason.icon size={18} />
                 </div>
-                <div className="min-w-[180px]">
-                  <h3 className="text-[16px] font-semibold tracking-tight text-heading">
-                    {reason.title}
-                  </h3>
+                <div className="text-right">
+                  <div className="text-xl font-light tracking-tight text-primary">
+                    {reason.stat}
+                  </div>
+                  <div className="text-[10px] font-medium tracking-wider text-muted uppercase">
+                    {reason.statLabel}
+                  </div>
                 </div>
               </div>
+
+              {/* Title */}
+              <h3 className="mb-2 text-[15px] font-semibold tracking-tight text-heading">
+                {reason.title}
+              </h3>
 
               {/* Description */}
-              <p className="text-[14px] leading-relaxed text-body">
+              <p className="text-justify text-[13px] leading-relaxed text-body">
                 {reason.description}
               </p>
-
-              {/* Stat */}
-              <div className="flex flex-shrink-0 flex-col items-end text-right">
-                <span className="text-2xl font-light tracking-tight text-primary">
-                  {reason.stat}
-                </span>
-                <span className="text-[10px] font-medium tracking-wider text-muted uppercase">
-                  {reason.statLabel}
-                </span>
-              </div>
             </motion.div>
           ))}
         </div>

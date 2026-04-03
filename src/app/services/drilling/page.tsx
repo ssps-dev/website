@@ -79,6 +79,7 @@ export default function DrillingPage() {
           description={service.description}
           stats={service.stats}
           iconName={service.iconName}
+          image={service.image}
         />
         <DrillingServices />
         <CTABanner />

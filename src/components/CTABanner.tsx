@@ -24,7 +24,7 @@ export default function CTABanner() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/60" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">
         {/* Text content */}
         <div className="max-w-2xl">
           <motion.div
@@ -33,13 +33,13 @@ export default function CTABanner() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-4 flex items-center gap-3">
               <div className="h-px w-8 bg-accent" />
-              <span className="text-[10px] font-semibold tracking-[0.35em] text-white/40 uppercase">
+              <span className="text-[10px] font-semibold tracking-[0.3em] text-white/40 uppercase">
                 Partner With Us
               </span>
             </div>
-            <h2 className="max-w-lg text-3xl font-extralight tracking-tight text-white md:text-4xl lg:text-[3rem] lg:leading-[1.12]">
+            <h2 className="max-w-lg text-3xl font-extralight tracking-tight text-white md:text-4xl lg:text-[3.2rem] lg:leading-[1.12]">
               Ready to Power Your
               <br />
               <span className="relative font-normal">
@@ -63,7 +63,7 @@ export default function CTABanner() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-6 max-w-md text-[15px] leading-relaxed text-white/55"
+            className="mt-4 max-w-md text-justify text-[15px] leading-relaxed text-white/55"
           >
             From drilling programs and well interventions to pipeline
             infrastructure and HV installations — get a tailored proposal for
@@ -76,7 +76,7 @@ export default function CTABanner() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-5 flex flex-wrap gap-3"
           >
             <Link
               href="#contact"
@@ -102,7 +102,7 @@ export default function CTABanner() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.6 }}
             viewport={{ once: true }}
-            className="mt-14 flex gap-10 border-t border-white/10 pt-8"
+            className="mt-6 flex flex-wrap gap-6 sm:gap-8 border-t border-white/10 pt-4"
           >
             {[
               { val: "500+", lbl: "Wells" },

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   ArrowDown,
@@ -31,6 +32,7 @@ interface ServiceHeroProps {
   description: string;
   stats: { value: string; label: string }[];
   iconName: IconName;
+  image?: string;
 }
 
 export default function ServiceHero({
@@ -41,6 +43,7 @@ export default function ServiceHero({
   description,
   stats,
   iconName,
+  image,
 }: ServiceHeroProps) {
   const Icon = iconMap[iconName];
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -54,8 +57,23 @@ export default function ServiceHero({
   return (
     <div
       ref={sectionRef}
-      className="relative min-h-[80vh] overflow-hidden bg-primary"
+      className="relative min-h-[65vh] overflow-hidden bg-primary"
     >
+      {/* Background image */}
+      {image && (
+        <div className="absolute inset-0">
+          <Image
+            src={image}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/85" />
+        </div>
+      )}
+
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="hatch-pattern h-full w-full" />
@@ -74,15 +92,15 @@ export default function ServiceHero({
       {/* Content */}
       <motion.div
         style={{ y: contentY }}
-        className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl items-center px-6 lg:px-8"
+        className="relative z-10 mx-auto flex min-h-[65vh] max-w-7xl items-center px-6 lg:px-8"
       >
-        <div className="w-full py-28 lg:py-36">
+        <div className="w-full py-20 lg:py-24">
           {/* Breadcrumb */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 flex items-center gap-2 text-[11px] text-white/30"
+            className="mb-3 flex items-center gap-2 text-[11px] text-white/30"
           >
             <Link
               href="/"
@@ -108,7 +126,7 @@ export default function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8 flex items-center gap-3"
+            className="mb-5 flex items-center gap-3"
           >
             <div className="flex h-9 w-9 items-center justify-center border border-accent/30 text-accent">
               <Icon size={16} />
@@ -147,7 +165,7 @@ export default function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-8 max-w-xl text-[15px] leading-[1.85] text-white/55"
+            className="mt-5 max-w-xl text-justify text-[15px] leading-[1.85] text-white/55"
           >
             {description}
           </motion.p>
@@ -157,7 +175,7 @@ export default function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-6 flex flex-wrap gap-3"
           >
             <Link
               href="#contact"
@@ -182,12 +200,12 @@ export default function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-20 grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4"
+            className="mt-12 grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4"
           >
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-primary px-6 py-6 text-center lg:px-8 lg:py-8"
+                className="bg-primary px-5 py-4 text-center lg:px-6 lg:py-5"
               >
                 <div className="text-2xl font-light tracking-tight text-accent-light lg:text-3xl">
                   {s.value}

@@ -125,7 +125,7 @@ export default function RigMaintenance() {
       {/* ═══════════════════════════════════════
           ZONE 1 — Three Pillars
          ═══════════════════════════════════════ */}
-      <div className="py-16 bg-surface-2 lg:py-20">
+      <div className="py-10 bg-surface-2 lg:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,11 +135,11 @@ export default function RigMaintenance() {
             className="grid gap-px border border-border bg-border sm:grid-cols-3"
           >
             {pillars.map((p) => (
-              <div key={p.word} className="bg-surface px-8 py-8 lg:px-10 lg:py-10">
+              <div key={p.word} className="bg-surface px-6 py-6 lg:px-8 lg:py-8">
                 <span className="text-[1.4rem] font-extralight tracking-tight text-heading lg:text-[1.6rem]">
                   {p.word}
                 </span>
-                <p className="mt-2 text-[13px] leading-relaxed text-muted">
+                <p className="mt-2 text-justify text-[13px] leading-relaxed text-muted">
                   {p.desc}
                 </p>
               </div>
@@ -151,7 +151,7 @@ export default function RigMaintenance() {
       {/* ═══════════════════════════════════════
           ZONE 2 — Active Rig Support (immersive panel)
          ═══════════════════════════════════════ */}
-      <div ref={parallaxRef} className="relative">
+      <div id="rig-support" ref={parallaxRef} className="scroll-mt-20 relative">
         {/* Background image */}
         <div className="relative min-h-[520px] lg:min-h-[600px]">
           <Image
@@ -182,16 +182,16 @@ export default function RigMaintenance() {
                 <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
                   Active Rig Support
                 </span>
-                <h3 className="mt-3 text-[1.75rem] font-light tracking-tight text-white md:text-[2.25rem]">
+                <h3 className="mt-3 text-2xl font-light tracking-tight text-white md:text-3xl">
                   O&M of Drilling & Workover Rigs
                 </h3>
-                <p className="mt-6 text-[15px] leading-[1.85] text-white/60">
+                <p className="mt-4 text-justify text-[15px] leading-[1.85] text-white/60">
                   Our Operations & Maintenance (O&M) services ensure optimal
                   performance and longevity of drilling and workover rigs. We
                   focus on minimizing downtime, improving efficiency, and
                   maintaining the highest safety standards.
                 </p>
-                <p className="mt-4 text-[14px] leading-[1.85] text-white/45">
+                <p className="mt-3 text-justify text-[14px] leading-[1.85] text-white/45">
                   From daily inspections and fluid analysis to emergency
                   breakdown response, we provide the operational backbone that
                   prevents minor issues from becoming costly shutdowns. Every
@@ -230,14 +230,14 @@ export default function RigMaintenance() {
       {/* ═══════════════════════════════════════
           ZONE 3 — Component Overhaul (parts catalog)
          ═══════════════════════════════════════ */}
-      <div className="section-padding bg-bg">
+      <div id="component-overhaul" className="scroll-mt-20 section-padding bg-bg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between"
+            className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between"
           >
             <div>
               <span className="mb-2 block font-mono text-[11px] tracking-[0.3em] text-accent/40">
@@ -250,7 +250,7 @@ export default function RigMaintenance() {
                 Component Overhaul & Repair
               </h3>
             </div>
-            <p className="max-w-md text-[13px] leading-relaxed text-muted">
+            <p className="max-w-md text-justify text-[13px] leading-relaxed text-muted">
               Full disassembly, inspection, machining, reassembly, and testing
               — restoring major rig components to OEM specifications. Every
               rebuilt unit ships with detailed inspection reports and warranty.
@@ -258,7 +258,7 @@ export default function RigMaintenance() {
           </motion.div>
 
           {/* Parts catalog cards — tall vertical */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {components.map((comp, i) => (
               <motion.div
                 key={comp.name}
@@ -280,8 +280,8 @@ export default function RigMaintenance() {
                 </div>
 
                 {/* Text */}
-                <div className="flex flex-1 flex-col px-5 pt-5 pb-6">
-                  <h4 className="text-[17px] font-medium tracking-tight text-heading">
+                <div className="flex flex-1 flex-col px-4 pt-4 pb-5">
+                  <h4 className="text-[16px] font-medium tracking-tight text-heading">
                     {comp.name}
                   </h4>
                   <span className="mt-1 text-[11px] font-medium tracking-[0.1em] text-accent uppercase">
@@ -309,9 +309,9 @@ export default function RigMaintenance() {
       {/* ═══════════════════════════════════════
           ZONE 4 — Preventative Maintenance (schedule tiers)
          ═══════════════════════════════════════ */}
-      <div className="section-padding bg-surface-2">
+      <div id="preventive-maintenance" className="scroll-mt-20 section-padding bg-surface-2">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-12">
             {/* Left — description */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -325,16 +325,16 @@ export default function RigMaintenance() {
               <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
                 Scheduled Asset Care
               </span>
-              <h3 className="mt-3 text-[1.65rem] font-light tracking-tight text-heading md:text-[1.85rem]">
+              <h3 className="mt-3 text-xl font-light tracking-tight text-heading md:text-2xl">
                 Preventative Maintenance Programs
               </h3>
-              <p className="mt-6 text-[15px] leading-[1.9] text-body">
+              <p className="mt-4 text-justify text-[15px] leading-[1.9] text-body">
                 The most expensive maintenance is the kind you didn&apos;t plan
                 for. Our preventative programs replace reactive firefighting with
                 structured, data-driven schedules that catch wear and
                 degradation before they cause failures.
               </p>
-              <p className="mt-4 text-[15px] leading-[1.9] text-body">
+              <p className="mt-3 text-justify text-[15px] leading-[1.9] text-body">
                 We design PM programs tailored to each rig&apos;s configuration,
                 operating environment, and utilization rate — defining inspection
                 intervals, lubrication schedules, component replacement
@@ -370,7 +370,7 @@ export default function RigMaintenance() {
               {pmTiers.map((tier, i) => (
                 <div
                   key={tier.interval}
-                  className={`border-t border-border px-6 py-7 lg:px-8 lg:py-8 ${
+                  className={`border-t border-border px-5 py-5 lg:px-6 lg:py-6 ${
                     i === pmTiers.length - 1 ? "border-b" : ""
                   }`}
                 >
@@ -378,7 +378,7 @@ export default function RigMaintenance() {
                     <span
                       className={`inline-block h-2.5 w-2.5 rounded-full ${tier.color}`}
                     />
-                    <span className="text-[15px] font-medium tracking-tight text-heading">
+                    <span className="text-[16px] font-medium tracking-tight text-heading">
                       {tier.interval}
                     </span>
                   </div>
@@ -403,9 +403,9 @@ export default function RigMaintenance() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-20 flex flex-col items-start gap-8 border-t border-border pt-10 md:flex-row md:items-center md:justify-between"
+            className="mt-10 flex flex-col items-start gap-5 border-t border-border pt-6 md:flex-row md:items-center md:justify-between"
           >
-            <p className="max-w-lg text-[14px] leading-relaxed text-muted">
+            <p className="max-w-lg text-justify text-[14px] leading-relaxed text-muted">
               Our expert technicians ensure all equipment operates at peak
               performance through comprehensive servicing, routine preventative
               programs, and corrective repairs — keeping your drilling

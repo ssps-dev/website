@@ -147,40 +147,29 @@ export default function EquipmentTrading() {
   return (
     <section id="equipment" className="relative overflow-hidden">
       {/* ═══════════════════════════════════════
-          ZONE 1 — Categories listed sequentially
+          ZONE 1 — Categories as cards with image on top
          ═══════════════════════════════════════ */}
-      {catalog.map((cat, catIndex) => {
-        const isEven = catIndex % 2 === 0;
-        return (
-          <div
-            key={cat.id}
-            className={catIndex % 2 === 0 ? "bg-surface-2" : "bg-bg"}
-          >
-            <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
-              {/* ── Editorial row: image + text ── */}
+      <div id="equipment-catalog" className="scroll-mt-20 section-padding bg-surface-2">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {catalog.map((cat, catIndex) => (
               <motion.div
+                key={cat.id}
+                id={cat.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true, margin: "-5%" }}
-                className={`grid items-center gap-10 lg:gap-16 ${
-                  isEven
-                    ? "lg:grid-cols-[1.1fr_1fr]"
-                    : "lg:grid-cols-[1fr_1.1fr]"
-                }`}
+                transition={{ duration: 0.5, delay: catIndex * 0.08 }}
+                viewport={{ once: true }}
+                className="group scroll-mt-20 flex flex-col border border-border bg-surface transition-colors duration-300 hover:border-accent/40"
               >
                 {/* Image */}
-                <div
-                  className={`relative aspect-[4/3] overflow-hidden bg-bg ${
-                    !isEven ? "lg:order-2" : ""
-                  }`}
-                >
+                <div className="relative aspect-[4/3] overflow-hidden bg-bg">
                   <Image
                     src={cat.image}
                     alt={cat.imageAlt}
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 55vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 bg-primary px-5 py-3">
                     <span className="text-[10px] font-semibold tracking-[0.2em] text-accent-light uppercase">
@@ -190,52 +179,42 @@ export default function EquipmentTrading() {
                 </div>
 
                 {/* Text */}
-                <div
-                  className={`flex flex-col justify-center ${
-                    !isEven ? "lg:order-1" : ""
-                  }`}
-                >
-                  <span className="mb-2 font-mono text-[11px] text-accent/40">
+                <div className="flex flex-1 flex-col px-4 pt-4 pb-3">
+                  <span className="mb-3 font-mono text-[11px] text-accent/40">
                     02.{cat.number}
                   </span>
-                  <h3 className="text-[1.5rem] font-light tracking-tight text-heading md:text-[1.75rem]">
+                  <h3 className="text-xl font-light tracking-tight text-heading">
                     {cat.title}
                   </h3>
-                  <p className="mt-5 text-[15px] leading-[1.85] text-body">
+                  <p className="mt-3 text-justify text-[14px] leading-[1.85] text-body">
                     {cat.overview}
                   </p>
                 </div>
-              </motion.div>
 
-              {/* ── Product items — clean list ── */}
-              <div className="mt-14 lg:mt-16">
-                {cat.items.map((item, i) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.06 }}
-                    viewport={{ once: true }}
-                    className={`grid items-baseline gap-4 border-t border-border px-2 py-6 sm:grid-cols-[140px_1fr_1.5fr] lg:gap-8 lg:px-4 lg:py-7 ${
-                      i === cat.items.length - 1 ? "border-b" : ""
-                    }`}
-                  >
-                    <span className="text-[10px] font-semibold tracking-[0.2em] text-accent uppercase">
-                      {item.subtitle}
-                    </span>
-                    <h4 className="text-[15px] font-medium tracking-tight text-heading">
-                      {item.name}
-                    </h4>
-                    <p className="text-[13px] leading-relaxed text-muted">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                {/* Product items */}
+                <div className="mt-auto border-t border-border px-4 py-3">
+                  {cat.items.map((item) => (
+                    <div
+                      key={item.name}
+                      className="flex items-start gap-2.5 py-2"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <div>
+                        <span className="text-[13px] font-medium text-heading">
+                          {item.name}
+                        </span>
+                        <span className="ml-2 text-[11px] text-muted">
+                          {item.subtitle}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
-        );
-      })}
+        </div>
+      </div>
 
       {/* ═══════════════════════════════════════
           ZONE 2 — Full-Width Sourcing Promise
@@ -245,23 +224,23 @@ export default function EquipmentTrading() {
           <div className="hatch-pattern h-full w-full" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16"
+            className="grid items-center gap-6 lg:grid-cols-[1.2fr_1fr] lg:gap-10"
           >
             {/* Left — promise text */}
             <div>
               <span className="text-[10px] font-semibold tracking-[0.3em] text-accent uppercase">
                 Our Sourcing Promise
               </span>
-              <h3 className="mt-3 text-[1.5rem] font-light tracking-tight text-white md:text-[1.85rem]">
+              <h3 className="mt-3 text-xl font-light tracking-tight text-white md:text-2xl">
                 Inspected. Certified. Documented. Delivered.
               </h3>
-              <p className="mt-5 text-[15px] leading-[1.85] text-white/55">
+              <p className="mt-3 text-justify text-[15px] leading-[1.85] text-white/55">
                 Every component we supply is inspected against OEM
                 specifications, certified to API or equivalent industry
                 standards, and accompanied by full traceability documentation

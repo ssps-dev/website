@@ -11,7 +11,7 @@ export interface ServiceInfo {
   subtitle: string;
   description: string;
   shortDescription: string;
-  capabilities: string[];
+  capabilities: { label: string; anchor?: string }[];
   image: string;
   imageAlt: string;
   stats: { value: string; label: string }[];
@@ -32,11 +32,19 @@ export const services: ServiceInfo[] = [
     shortDescription:
       "End-to-end drilling solutions for oil, gas, and industrial applications with wireline, slickline, nitrogen pumping, coil tubing, and more.",
     capabilities: [
-      "Wireline & Slickline Unit Services",
-      "Nitrogen Pumping & Coil Tubing",
-      "Hydraulic Workover Units (HWU)",
-      "Cementing & Well Testing",
-      "Mud Logging & Solids Control",
+      { label: "Oil, Water & Mining Well Drilling", anchor: "well-types" },
+      { label: "Rig Fleet (550–2000 HP)", anchor: "rig-fleet" },
+      { label: "Well Testing & Commissioning", anchor: "well-testing" },
+      { label: "Wireline Unit Services", anchor: "wireline" },
+      { label: "Slickline Unit Services", anchor: "slickline" },
+      { label: "Nitrogen Pumping Unit", anchor: "nitrogen-pumping" },
+      { label: "Hydraulic Workover Units (HWU)", anchor: "hwu" },
+      { label: "Coil Tubing Services", anchor: "coil-tubing" },
+      { label: "Cementing Units", anchor: "cementing" },
+      { label: "Mud Logging & Solids Control Systems", anchor: "mud-logging" },
+      { label: "Well Testing Equipment", anchor: "well-testing-equipment" },
+      { label: "Air Compressor & Booster Units", anchor: "air-compressor" },
+      { label: "Diesel Generator (DG) Sets", anchor: "dg-sets" },
     ],
     image:
       "/img/drilling.webp",
@@ -62,10 +70,11 @@ export const services: ServiceInfo[] = [
     shortDescription:
       "Rig component trading, mud pumps & fluid systems, and specialized drilling accessories from global OEM and aftermarket suppliers.",
     capabilities: [
-      "Rig Component Trading & Supply",
-      "Mud Pumps & Fluid Circulation",
-      "Drilling Accessories & Parts",
+      { label: "Rig Component Trading & Supply", anchor: "rig-components" },
+      { label: "Mud Pumps & Fluid Circulation", anchor: "mud-systems" },
+      { label: "Drilling Accessories & Replacement Parts", anchor: "accessories" },
     ],
+
     image:
       "/img/equipments.webp",
     imageAlt: "Drilling equipment warehouse",
@@ -90,9 +99,12 @@ export const services: ServiceInfo[] = [
     shortDescription:
       "O&M services for drilling and workover rigs — minimizing downtime, improving efficiency, and maintaining the highest safety standards.",
     capabilities: [
-      "Full-Scale Rig Maintenance",
-      "Component Overhaul & Repair",
-      "Preventative Maintenance Programs",
+      { label: "O&M of Drilling & Workover Rigs", anchor: "rig-support" },
+      { label: "Mud Pumps", anchor: "component-overhaul" },
+      { label: "Draw-Works", anchor: "component-overhaul" },
+      { label: "Rotary Tables", anchor: "component-overhaul" },
+      { label: "Engines & Generators", anchor: "component-overhaul" },
+      { label: "Preventative Maintenance Programs", anchor: "preventive-maintenance" },
     ],
     image:
       "/img/maintenance.webp",
@@ -118,9 +130,12 @@ export const services: ServiceInfo[] = [
     shortDescription:
       "11kV to 132kV power infrastructure, overhead line construction, substation builds, and complete E&I commissioning.",
     capabilities: [
-      "High-Voltage Infrastructure (11–132 kV)",
-      "Overhead Line Construction",
-      "Substation Construction & Integration",
+      { label: "Overhead Line Construction", anchor: "overhead-lines" },
+      { label: "Substation Construction & Integration", anchor: "overhead-lines" },
+      { label: "End-to-end E&I Competencies", anchor: "switchgear-protection" },
+      { label: "Supply & Installation of Industrial Piping", anchor: "industrial-piping" },
+      { label: "Comprehensive Electrical Installations", anchor: "electrical-installations" },
+      { label: "Panel Erection & System Commissioning", anchor: "panel-erection" },
     ],
     image:
       "/img/electric.webp",
@@ -146,9 +161,8 @@ export const services: ServiceInfo[] = [
     shortDescription:
       "Pipeline routing, welding, NDT, cathodic protection, hydrostatic testing, and full commissioning for oil, gas, and water lines.",
     capabilities: [
-      "Pipeline Routing & Construction",
-      "Integrity Testing & Commissioning",
-      "Cathodic Protection Systems",
+      { label: "Oil, Gas & Water Pipelines", anchor: "pipeline-types" },
+      { label: "Pipeline Integrity Services", anchor: "integrity-testing" },
     ],
     image:
       "/img/pipeline.webp",

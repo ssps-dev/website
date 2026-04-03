@@ -77,6 +77,7 @@ export default function RigMaintenancePage() {
           description={service.description}
           stats={service.stats}
           iconName={service.iconName}
+          image={service.image}
         />
         <RigMaintenance />
         <CTABanner />

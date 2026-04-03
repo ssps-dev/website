@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Drill, Cog, Wrench, Zap, ConstructionIcon } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Drill, Cog, Wrench, Zap, ConstructionIcon } from "lucide-react";
 import { services } from "@/lib/services";
 import type { IconName } from "@/lib/services";
 import type { LucideIcon } from "lucide-react";
@@ -17,8 +17,7 @@ const iconMap: Record<IconName, LucideIcon> = {
 };
 
 const navLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#expertise", label: "Expertise" },
+  // { href: "/#expertise", label: "Expertise" },
   { href: "/#why-us", label: "Why SSPS" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -27,6 +26,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [activeService, setActiveService] = useState(0);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -50,6 +50,7 @@ export default function Navbar() {
 
   const openDropdown = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveService(0);
     setServicesOpen(true);
   };
 
@@ -107,13 +108,25 @@ export default function Navbar() {
                   scrolled ? "text-muted" : "text-white/50"
                 }`}
               >
-                Seven Star Petroleum
+                Seven Star Petroleum LLC
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden items-center gap-0.5 md:flex">
+            {/* About link (before Services) */}
+            <Link
+              href="/#about"
+              className={`relative px-4 py-2 text-[13px] font-medium transition-colors duration-300 ${
+                scrolled
+                  ? "text-body hover:text-heading"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              About
+            </Link>
+
             {/* Services dropdown */}
             <div
               ref={dropdownRef}
@@ -142,58 +155,96 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 top-full mt-2 w-[320px] -translate-x-1/2 border border-border bg-surface shadow-lg"
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-full mt-2 w-[260px] border border-border bg-surface shadow-xl"
                   >
                     {/* Arrow */}
-                    <div className="absolute -top-[5px] left-1/2 h-2.5 w-2.5 -translate-x-1/2 rotate-45 border-l border-t border-border bg-surface" />
+                    <div className="absolute -top-[5px] left-8 h-2.5 w-2.5 rotate-45 border-l border-t border-border bg-surface" />
 
-                    <div className="relative py-2">
-                      {/* All services link */}
-                      <Link
-                        href="/#services"
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-center gap-3 px-5 py-3 transition-colors hover:bg-bg"
-                      >
-                        <div className="flex h-7 w-7 items-center justify-center bg-accent-subtle">
-                          <span className="text-[9px] font-bold text-accent">ALL</span>
-                        </div>
-                        <div>
-                          <span className="block text-[13px] font-medium text-heading">
-                            All Services
-                          </span>
-                          <span className="block text-[11px] text-muted">
-                            Overview of our five verticals
-                          </span>
-                        </div>
-                      </Link>
-
-                      <div className="mx-5 my-1 h-px bg-border" />
-
-                      {/* Service links */}
-                      {services.map((service) => {
+                    <div className="relative py-1.5">
+                      {services.map((service, i) => {
                         const Icon = iconMap[service.iconName];
+                        const isActive = activeService === i;
                         return (
-                          <Link
+                          <div
                             key={service.slug}
-                            href={`/services/${service.slug}`}
-                            onClick={() => setServicesOpen(false)}
-                            className="group/item flex items-center gap-3 px-5 py-2.5 transition-colors hover:bg-bg"
+                            className="relative"
+                            onMouseEnter={() => setActiveService(i)}
                           >
-                            <div className="flex h-7 w-7 items-center justify-center border border-border transition-colors group-hover/item:border-accent/30 group-hover/item:bg-accent-subtle">
-                              <Icon size={13} className="text-muted transition-colors group-hover/item:text-accent" />
-                            </div>
-                            <div>
-                              <span className="block text-[13px] font-medium text-heading transition-colors group-hover/item:text-accent">
+                            <Link
+                              href={`/services/${service.slug}`}
+                              onClick={() => setServicesOpen(false)}
+                              className={`group/item flex items-center gap-2.5 px-4 py-2 transition-colors duration-100 ${
+                                isActive ? "bg-bg" : "hover:bg-bg"
+                              }`}
+                            >
+                              <div className={`flex h-6 w-6 shrink-0 items-center justify-center border transition-colors ${
+                                isActive
+                                  ? "border-accent/40 bg-accent-subtle"
+                                  : "border-border group-hover/item:border-accent/30"
+                              }`}>
+                                <Icon size={12} className={`transition-colors ${isActive ? "text-accent" : "text-muted group-hover/item:text-accent"}`} />
+                              </div>
+                              <span className={`flex-1 text-[12px] font-medium transition-colors ${
+                                isActive ? "text-accent" : "text-heading"
+                              }`}>
                                 {service.title}
                               </span>
-                              <span className="block text-[10px] tracking-wide text-muted uppercase">
-                                {service.subtitle}
-                              </span>
-                            </div>
-                          </Link>
+                              <ChevronRight size={11} className={`shrink-0 transition-colors ${
+                                isActive ? "text-accent" : "text-muted/50"
+                              }`} />
+                            </Link>
+
+                            {/* Sub-dropdown on hover */}
+                            {isActive && (
+                              <motion.div
+                                initial={{ opacity: 0, x: -4 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.12 }}
+                                className="absolute left-full top-0 -ml-px w-[240px] border border-border bg-surface shadow-lg"
+                              >
+                                <div className="border-b border-border px-4 py-2.5">
+                                  <span className="text-[10px] font-semibold tracking-[0.15em] text-accent uppercase">
+                                    {service.subtitle}
+                                  </span>
+                                </div>
+                                <div className="py-1.5">
+                                  {service.capabilities.map((cap) => (
+                                    <Link
+                                      key={cap.label}
+                                      href={`/services/${service.slug}${cap.anchor ? `#${cap.anchor}` : ""}`}
+                                      onClick={() => setServicesOpen(false)}
+                                      className="flex items-center gap-2 px-4 py-1.5 text-[11px] text-body transition-colors hover:bg-bg hover:text-accent"
+                                    >
+                                      <span className="h-1 w-1 shrink-0 rounded-full bg-accent/40" />
+                                      {cap.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                                <div className="border-t border-border px-4 py-2">
+                                  <Link
+                                    href={`/services/${service.slug}`}
+                                    onClick={() => setServicesOpen(false)}
+                                    className="inline-flex items-center gap-1 text-[11px] font-medium text-accent transition-colors hover:text-accent-light"
+                                  >
+                                    View Details <ArrowRight size={10} />
+                                  </Link>
+                                </div>
+                              </motion.div>
+                            )}
+                          </div>
                         );
                       })}
+
+                      <div className="mx-3 mt-1 border-t border-border pt-1.5 pb-0.5">
+                        <Link
+                          href="/#services"
+                          onClick={() => setServicesOpen(false)}
+                          className="flex items-center gap-2 px-1 py-1.5 text-[11px] font-medium text-accent transition-colors hover:text-accent-light"
+                        >
+                          All Services Overview <ArrowRight size={10} />
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -233,7 +284,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className={`p-2 md:hidden ${
+            className={`p-3 md:hidden ${
               scrolled ? "text-heading" : "text-white"
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -254,6 +305,15 @@ export default function Navbar() {
               className="overflow-hidden border-t border-border bg-bg/98 backdrop-blur-xl md:hidden"
             >
               <div className="flex flex-col px-6 py-6">
+                {/* About link */}
+                <Link
+                  href="/#about"
+                  onClick={() => setMobileOpen(false)}
+                  className="border-b border-border/50 py-4 text-[14px] font-medium text-heading"
+                >
+                  About
+                </Link>
+
                 {/* Services accordion */}
                 <div className="border-b border-border/50">
                   <button
@@ -275,7 +335,7 @@ export default function Navbar() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="space-y-1 pb-4 pl-2">
+                        <div className="space-y-0.5 pb-4 pl-2">
                           {services.map((service) => {
                             const Icon = iconMap[service.iconName];
                             return (
@@ -285,10 +345,17 @@ export default function Navbar() {
                                 onClick={() => { setMobileOpen(false); setMobileServicesOpen(false); }}
                                 className="flex items-center gap-3 rounded px-3 py-2.5 transition-colors hover:bg-surface"
                               >
-                                <Icon size={14} className="text-accent" />
-                                <span className="text-[13px] text-body">
-                                  {service.title}
-                                </span>
+                                <div className="flex h-7 w-7 shrink-0 items-center justify-center border border-border">
+                                  <Icon size={13} className="text-accent" />
+                                </div>
+                                <div>
+                                  <span className="block text-[13px] font-medium text-body">
+                                    {service.title}
+                                  </span>
+                                  <span className="block text-[10px] tracking-wide text-muted uppercase">
+                                    {service.subtitle}
+                                  </span>
+                                </div>
                               </Link>
                             );
                           })}

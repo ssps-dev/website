@@ -40,7 +40,7 @@ export default function About() {
   const illustrationY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section id="about" className="relative pt-28 pb-28 lg:pt-36">
+    <section id="about" className="relative pt-10 pb-10 lg:pt-14">
       <div ref={containerRef} className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* ── Header ── */}
         <motion.div
@@ -48,12 +48,11 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-16 max-w-2xl"
+          className="mb-6 max-w-2xl"
         >
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <div className="h-px w-8 bg-accent" />
-            <span className="text-[10px] font-semibold tracking-[0.35em] text-accent uppercase">
-              About SSPS
+            <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-dark uppercase">
             </span>
           </div>
 
@@ -64,7 +63,7 @@ export default function About() {
         </motion.div>
 
         {/* ── Main content: Tall image + text side by side ── */}
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr] lg:gap-10">
           {/* Left — Tall illustration panel */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
@@ -73,7 +72,7 @@ export default function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-3/4 overflow-hidden lg:aspect-2/3">
+            <div className="relative aspect-4/3 overflow-hidden lg:aspect-3/4">
               <motion.div
                 style={{ y: illustrationY }}
                 className="absolute inset-0"
@@ -95,7 +94,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="-mt-20 relative z-10 mx-4 grid grid-cols-2 gap-px border border-border bg-border"
+              className="-mt-16 relative z-10 mx-4 grid grid-cols-2 gap-px border border-border bg-border"
             >
               {[
                 { value: "25+", label: "Years in Energy" },
@@ -109,7 +108,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
                   viewport={{ once: true }}
-                  className="bg-bg/95 backdrop-blur-sm p-5 text-center lg:p-6"
+                  className="bg-bg/95 backdrop-blur-sm p-4 text-center lg:p-5"
                 >
                   <div className="text-2xl font-light text-primary lg:text-3xl">
                     {stat.value}
@@ -130,7 +129,7 @@ export default function About() {
             viewport={{ once: true }}
             className="lg:pt-4"
           >
-            <div className="space-y-5 text-[15px] leading-[1.8] text-body">
+            <div className="space-y-3 text-justify text-[14px] leading-[1.75] text-body">
               <p>
                 Seven Star Petroleum Services LLC (SSPS) is a comprehensive
                 oilfield services provider headquartered in Muscat, Oman. For
@@ -156,11 +155,11 @@ export default function About() {
             </div>
 
             {/* ── Vision Statement ── */}
-            <div className="mt-14 border-t border-border pt-10">
-              <h3 className="mb-4 text-[10px] font-semibold tracking-[0.3em] text-muted uppercase">
+            <div className="mt-6 border-t border-border pt-5">
+              <h3 className="mb-2 text-[10px] font-semibold tracking-[0.3em] text-muted uppercase">
                 Our Vision
               </h3>
-              <p className="text-[15px] leading-[1.8] text-body">
+              <p className="text-justify text-[14px] leading-[1.75] text-body">
                 To become a trusted global leader in energy and industrial
                 services by delivering innovative, efficient, and sustainable
                 solutions, while maintaining the highest standards of safety,
@@ -169,8 +168,8 @@ export default function About() {
             </div>
 
             {/* ── Timeline ── */}
-            <div className="mt-14 border-t border-border pt-10">
-              <h3 className="mb-8 text-[10px] font-semibold tracking-[0.3em] text-muted uppercase">
+            <div className="mt-6 border-t border-border pt-5">
+              <h3 className="mb-4 text-[10px] font-semibold tracking-[0.3em] text-muted uppercase">
                 Our Journey
               </h3>
               <div className="space-y-0">
@@ -181,7 +180,7 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: i * 0.06 }}
                     viewport={{ once: true }}
-                    className="group flex items-baseline gap-6 border-b border-border/60 py-4 transition-colors duration-300 hover:border-accent/30"
+                    className="group flex items-baseline gap-5 border-b border-border/60 py-3 transition-colors duration-300 hover:border-accent/30"
                   >
                     <span className="font-mono text-[13px] font-semibold text-accent">
                       {m.year}
